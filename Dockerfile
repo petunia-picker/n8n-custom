@@ -2,8 +2,9 @@ FROM n8nio/n8n:latest
 
 USER root
 
-# Install Python, pip, and ffmpeg (required for yt-dlp)
-RUN apk add --no-cache \
+# Update package index first
+RUN apk update && \
+    apk add --no-cache \
     python3 \
     py3-pip \
     ffmpeg
